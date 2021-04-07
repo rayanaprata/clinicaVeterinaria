@@ -14,8 +14,8 @@ class CreateConsultasTable extends Migration
     public function up()
     {
         Schema::create('consultas', function (Blueprint $table) {
-            $table->integer('animais')->unsigned();
-            $table->foreign('animais')->references('id')->on('animais');
+            $table->integer('animais_id')->unsigned();
+            $table->foreign('animais_id')->references('id')->on('animais');
             $table->increments('id');
             $table->date('data');
             $table->string('sintomas');
