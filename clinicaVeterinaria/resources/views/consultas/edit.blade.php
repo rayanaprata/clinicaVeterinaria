@@ -1,11 +1,11 @@
 @extends('layout.app', ["current" => "consultas"])
-
 @section('body')
-
 <div class="card border">
     <div class="card-body">
-        <form action="{{ route('consultas.store') }}" method="POST">
+        <!--Configurar o actions para chamar o método update-->
+        <form action="{{ route('consultas.update', $con['id']) }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="row">
 
                 <div class="form-group col-md-2">
@@ -39,10 +39,10 @@
                 </div>
 
             </div>
+
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-            <button href="/consultas" type="cancel" class="btn btn-danger btn-sm">Cancelar</button>
+            <button href="/consultas" type="cancel" class="btn btn-danger btn-sm">Cancel</button>
         </form>
     </div>
 </div>
-
 @endsection

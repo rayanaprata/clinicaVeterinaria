@@ -1,14 +1,14 @@
 @extends('layout.app', ["current" => "clientes"])
-
 @section('body')
-    
 <div class="card border">
     <div class="card-body">
-        <form action="{{ route('clientes.store') }}" method="POST">
+        <!--Configurar o actions para chamar o método update-->
+        <form action="{{ route('clientes.update', $cli['id']) }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="row">
-                
-                <div class="form-group col-md-2">
+
+            <div class="form-group col-md-2">
                 <label for="cli_nome">Nome</label>
                 <input type="text" class="form-control" name="cli_nome" id="cli_nome" placeholder="Digite aqui o nome">
                 </div>
@@ -24,10 +24,10 @@
                 </div>
 
             </div>
+
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-            <button href="/clientes" type="cancel" class="btn btn-danger btn-sm">Cancelar</button>
+            <button href="/clientes" type="cancel" class="btn btn-danger btn-sm">Cancel</button>
         </form>
     </div>
 </div>
-
 @endsection

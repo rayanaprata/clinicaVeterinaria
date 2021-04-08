@@ -32,12 +32,14 @@
                     </td>
                 </tr>
                 @endforeach
+                @else
+                <tr>
+                    <td colspan="30">Nenhum Cliente Cadastrado</td>
+                </tr>
             </tbody>
         </table>
         @endif
-
-<div class="card-footer">
-    <a href="/clientes/create" class="btn btn-sm btn-primary" role="button">Novo Cliente</a>
-</div>
-
-@endsection
+        <div class="card-footer">
+            <a href="/clientes/create" class="btn btn-sm btn-primary" role="button">Novo Cliente</a>
+        </div>
+        @endsection

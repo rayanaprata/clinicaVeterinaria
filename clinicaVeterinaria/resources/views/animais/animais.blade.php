@@ -47,12 +47,14 @@
                     </td>
                 </tr>
                 @endforeach
+                @else
+                <tr>
+                    <td colspan="30">Nenhuma Animal Cadastrado</td>
+                </tr>
             </tbody>
         </table>
         @endif
-
         <div class="card-footer">
             <a href="/animais/create" class="btn btn-sm btn-primary" role="button">Novo Animal</a>
         </div>
-
         @endsection

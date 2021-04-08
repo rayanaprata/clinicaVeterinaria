@@ -63,7 +63,12 @@ class ControladorClientes extends Controller
      */
     public function edit($id)
     {
-        //
+        $cli = Clientes::find($id);
+        if (isset($cli)) {
+            return view('clientes.edit', compact('cli'));
+        }
+
+        return redirect('/clientes');
     }
 
     /**
@@ -75,7 +80,15 @@ class ControladorClientes extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cli = Clientes::find($id);
+        if (isset($cli)) {
+            $cli->nome = $request->input('cli_nome');
+            $cli->telefone = $request->input('cli_telefone');
+            $cli->email = $request->input('cli_email');
+            $cli->save();
+        }
+
+        return redirect('/clientes');
     }
 
     /**
