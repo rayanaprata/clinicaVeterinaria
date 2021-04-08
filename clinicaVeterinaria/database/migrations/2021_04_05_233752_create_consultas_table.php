@@ -22,7 +22,6 @@ class CreateConsultasTable extends Migration
             $table->string('tratamento');
             $table->enum('exame', ['Sim', 'Não']);
             $table->string('descExame')->nullable(true);
-            $table->primary(['id', 'animais_id']);
         });
     }
 

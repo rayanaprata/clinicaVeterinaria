@@ -6,19 +6,22 @@
     <div class="card-body">
         <form action="{{ route('clientes.store') }}" method="POST">
             @csrf
-            <div class="form-group">
+            <div class="row">
                 
+                <div class="form-group col-md-6">
                 <label for="cli_nome">Nome</label>
                 <input type="text" class="form-control" name="cli_nome" id="cli_nome" placeholder="Digite aqui o nome">
-                <br>
+                </div>
 
+                <div class="form-group col-md-6">
                 <label for="cli_telefone">Telefone</label>
-                <input type="tel" class="form-control" name="cli_telefone" id="cli_telefone" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" placeholder="Digite aqui o telefone">
-                <br>
+                <input type="tel" class="form-control" name="cli_telefone" id="cli_telefone" pattern="\(\d{2}\)\d{5}-\d{4}" title='Formato: "(99)9999-9999"' placeholder="Digite aqui o telefone">
+                </div>
 
+                <div class="form-group col-md-6">
                 <label for="cli_email">E-mail</label>
                 <input type="text" class="form-control" name="cli_email" id="cli_email" placeholder="Digite aqui o email">
-                <br>
+                </div>
 
             </div>
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>

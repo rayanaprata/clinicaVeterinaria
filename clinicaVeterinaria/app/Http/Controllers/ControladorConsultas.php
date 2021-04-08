@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Consultas;
 
 class ControladorConsultas extends Controller
 {
@@ -34,7 +35,14 @@ class ControladorConsultas extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $con = new Consultas();
+        $con->data = $request->input('con_data');
+        $con->sintomas = $request->input('con_sintomas');
+        $con->tratamento = $request->input('con_tratamento');
+        $con->exame = $request->input('con_exame');
+        $con->descExame = $request->input('con_descExame');
+        $con->save();
+        return redirect('/consultas');
     }
 
     /**

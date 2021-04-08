@@ -1924,6 +1924,7 @@ pre code {
  max-width: 100%;
  margin-bottom: 1rem;
  background-color: transparent;
+ font-size: small;
 }
 
 .table th,

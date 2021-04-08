@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Clientes;
 
 class ControladorClientes extends Controller
 {
@@ -13,7 +14,8 @@ class ControladorClientes extends Controller
      */
     public function index()
     {
-        return view('clientes/clientes');
+        $clientes = Clientes::all();
+        return view('clientes/clientes', compact('clientes'));
     }
 
     /**
@@ -34,7 +36,12 @@ class ControladorClientes extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cli = new Clientes();
+        $cli->nome = $request->input('cli_nome');
+        $cli->telefone = $request->input('cli_telefone');
+        $cli->email = $request->input('cli_email');
+        $cli->save();
+        return redirect('/clientes');
     }
 
     /**
@@ -79,6 +86,10 @@ class ControladorClientes extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cli = Clientes::find($id);
+        if (isset($cli)) {
+            $cli->delete();
+        }
+        return redirect('/clientes');
     }
 }

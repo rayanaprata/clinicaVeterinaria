@@ -1,37 +1,42 @@
-@extends('layout.app', ["current" => "clientes"])
+@extends('layout.app', ["current" => "consultas"])
 
 @section('body')
     
 <div class="card border">
     <div class="card-body">
-        <form action="{{ route('clientes.store') }}" method="POST">
+        <form action="{{ route('consultas.store') }}" method="POST">
             @csrf
-            <div class="form-group">
+            <div class="row">
 
-                <label for="cli_data">Data da Consulta</label>
-                <input type="date" class="form-control" name="cli_data" id="cli_data">
-                <br>
+                <div class="form-group col-md-6">
+                <label for="con_data">Data da Consulta</label>
+                <input type="date" class="form-control" name="con_data" id="con_data">
+                </div>
 
-                <label for="cli_sintomas">Sintomas</label>
-                <input type="text" class="form-control" name="cli_sintomas" id="cli_sintomas" placeholder="Digite aqui os sintomas">
-                <br>
+                <div class="form-group col-md-6">
+                <label for="con_sintomas">Sintomas</label>
+                <input type="text" class="form-control" name="con_sintomas" id="con_sintomas" placeholder="Digite aqui os sintomas">
+                </div>
 
-                <label for="cli_tratamento">Tratamento</label>
-                <input type="text" class="form-control" name="cli_tratamento" id="cli_tratamento" placeholder="Digite aqui o tratamento">
-                <br>
+                <div class="form-group col-md-6">
+                <label for="con_tratamento">Tratamento</label>
+                <input type="text" class="form-control" name="con_tratamento" id="con_tratamento" placeholder="Digite aqui o tratamento">
+                </div>
 
-                <label for="cli_exame">Exame</label>
-                <select name="cli_exame" id="cli_exame">
+                <div class="form-group col-md-6">
+                <label for="con_exame">Exame</label>
+                <select class="form-control" name="con_exame" id="con_exame">
                     @php($exame = ['Sim'=>'Sim','Não'=>'Não'])
                     @foreach($exame as $exa)
                     <option value="{{ $exa }}">{{ $exa }}</option>
                     @endforeach
                 </select>
-                <br>
+                </div>
 
-                <label for="cli_descExame">Descrição Doença</label>
-                <input type="text" class="form-control" name="cli_descExame" id="cli_descExame" placeholder="Digite a descrição do exame">
-                <br>
+                <div class="form-group col-md-6">
+                <label for="con_descExame">Descrição Doença</label>
+                <input type="text" class="form-control" name="con_descExame" id="con_descExame" placeholder="Digite a descrição do exame">
+                </div>
 
             </div>
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>

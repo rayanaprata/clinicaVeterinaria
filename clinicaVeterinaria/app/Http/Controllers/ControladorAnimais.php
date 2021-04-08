@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Animais;
 
 class ControladorAnimais extends Controller
 {
@@ -13,7 +14,8 @@ class ControladorAnimais extends Controller
      */
     public function index()
     {
-        return view('animais/animais');
+        $animais = Animais::all();
+        return view('animais/animais', compact('animais'));
     }
 
     /**
@@ -34,7 +36,21 @@ class ControladorAnimais extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ani = new Animais();
+        $ani->nome = $request->input('ani_nome');
+        $ani->apelido = $request->input('ani_apelido');
+        $ani->raca = $request->input('ani_raca');
+        $ani->especie = $request->input('ani_especie');
+        $ani->peso = $request->input('ani_peso');
+        $ani->cor = $request->input('ani_cor');
+        $ani->nascimento = $request->input('ani_nascimento');
+        $ani->doenca = $request->input('ani_doenca');
+        $ani->descDoenca = $request->input('ani_descDoenca');
+        $ani->cirurgia = $request->input('ani_cirurgia');
+        $ani->descCirurgia = $request->input('ani_descCirurgia');
+        $ani->save();
+        return redirect('/animais');
+
     }
 
     /**
@@ -56,7 +72,12 @@ class ControladorAnimais extends Controller
      */
     public function edit($id)
     {
-        //
+        $ani = Animais::find($id);
+        if (isset($ani)) {
+            return view('animais.edit', compact('ani'));
+        }
+
+        return redirect('/animais');
     }
 
     /**
@@ -68,7 +89,23 @@ class ControladorAnimais extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ani = Animais::find($id);
+        if (isset($ani)) {
+            $ani->nome = $request->input('ani_nome');
+            $ani->apelido = $request->input('ani_apelido');
+            $ani->raca = $request->input('ani_raca');
+            $ani->especie = $request->input('ani_especie');
+            $ani->peso = $request->input('ani_peso');
+            $ani->cor = $request->input('ani_cor');
+            $ani->nascimento = $request->input('ani_nascimento');
+            $ani->doenca = $request->input('ani_doenca');
+            $ani->descDoenca = $request->input('ani_descDoenca');
+            $ani->cirurgia = $request->input('ani_cirurgia');
+            $ani->descCirurgia = $request->input('ani_descCirurgia');
+            $ani->save();
+        }
+
+        return redirect('/animais');
     }
 
     /**
@@ -79,6 +116,10 @@ class ControladorAnimais extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ani = Animais::find($id);
+        if (isset($ani)) {
+            $ani->delete();
+        }
+        return redirect('/animais');
     }
 }
