@@ -73,6 +73,8 @@
                     <input type="text" class="form-control" name="ani_descCirurgia" id="ani_descCirurgia" placeholder="Digite qual a cirurgia" value="{{ $ani->descCirurgia }}">
                 </div>
 
+                <input type="hidden" class="form-control" name="clientes_id" id="clientes_id" value="{{ $ani->clientes_id }}">
+
             </div>
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
             <a href="/animais" class="btn btn-danger btn-sm">Cancelar</a>

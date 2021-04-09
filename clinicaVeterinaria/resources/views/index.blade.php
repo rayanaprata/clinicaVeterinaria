@@ -1,6 +1,7 @@
 @extends('layout.app', ['current' => 'home'])
 
 @section('body')
+
 <div class="jumbotron bg-light border border-secondary">
     <div class="row" id="menuzinho">
         <div class="card-deck">
@@ -34,4 +35,7 @@
         </div>
     </div>
 </div>
+<figure>
+  <img src="img/pet.png" alt="Clinica Veterinaria" style="width: 100%">
+</figure>
 @endsection

@@ -38,6 +38,8 @@
                     <input type="text" class="form-control" name="con_descExame" id="con_descExame" placeholder="Digite a descrição do exame" value="{{ $con->descExame }}">
                 </div>
 
+                <input type="hidden" class="form-control" name="animais_id" id="animais_id" value="{{ $con->animais_id }}">
+
             </div>
 
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>

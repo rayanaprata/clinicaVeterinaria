@@ -14,6 +14,8 @@
                     <th>Tratamento</th>
                     <th>Exame</th>
                     <th>Descrição Exame</th>
+                    <th>Dono</th>
+                    <th>Animal</th>
                     <th>Ações</th>
                 </tr>
             </thead>
