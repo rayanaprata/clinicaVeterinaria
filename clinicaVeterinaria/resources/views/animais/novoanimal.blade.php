@@ -73,9 +73,19 @@
                     <input type="text" class="form-control" name="ani_descCirurgia" id="ani_descCirurgia" placeholder="Digite qual a cirurgia">
                 </div>
 
+                <div class="form-group col-md-2">
+                    <label for="clientes_id">Clientes</label>
+                    <select id="clientes_id" name="clientes_id" class="form-control">
+                        @foreach($clientes as $cli)
+                        <option value="{{ $cli['id'] }}">{{$cli['nome'] }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+
             </div>
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-            <button href="/animais" type="cancel" class="btn btn-danger btn-sm">Cancelar</button>
+            <a href="/animais" class="btn btn-danger btn-sm">Cancelar</a>
         </form>
     </div>
 </div>

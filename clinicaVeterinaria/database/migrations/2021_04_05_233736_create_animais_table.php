@@ -26,6 +26,8 @@ class CreateAnimaisTable extends Migration
             $table->string('descDoenca')->nullable(true);
             $table->enum('cirurgia', ['Sim', 'Não']);
             $table->string('descCirurgia')->nullable(true);
+            $table->integer('clientes_id')->unsigned();
+            $table->foreign('clientes_id')->references('id')->on('clientes');
             $table->timestamps();
         });
     }

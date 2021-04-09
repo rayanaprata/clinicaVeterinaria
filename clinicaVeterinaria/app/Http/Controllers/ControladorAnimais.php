@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Animais;
+use App\Models\Clientes;
 
 class ControladorAnimais extends Controller
 {
@@ -14,7 +15,8 @@ class ControladorAnimais extends Controller
      */
     public function index()
     {
-        $animais = Animais::all();
+
+        $animais = Animais::with('clientes')->get();
         return view('animais/animais', compact('animais'));
     }
 
@@ -25,7 +27,8 @@ class ControladorAnimais extends Controller
      */
     public function create()
     {
-        return view('animais.novoanimal');
+        $clientes = Clientes::all();
+        return view('animais.novoanimal', compact('clientes'));
     }
 
     /**
@@ -48,6 +51,7 @@ class ControladorAnimais extends Controller
         $ani->descDoenca = $request->input('ani_descDoenca');
         $ani->cirurgia = $request->input('ani_cirurgia');
         $ani->descCirurgia = $request->input('ani_descCirurgia');
+        $ani->clientes_id = $request->input('clientes_id');
         $ani->save();
         return redirect('/animais');
 
@@ -102,6 +106,7 @@ class ControladorAnimais extends Controller
             $ani->descDoenca = $request->input('ani_descDoenca');
             $ani->cirurgia = $request->input('ani_cirurgia');
             $ani->descCirurgia = $request->input('ani_descCirurgia');
+            $ani->clientes_id = $request->input('clientes_id');
             $ani->save();
         }
 

@@ -22,8 +22,7 @@ class CreateConsultasTable extends Migration
             $table->string('descExame')->nullable(true);
             $table->integer('animais_id')->unsigned();
             $table->foreign('animais_id')->references('id')->on('animais');
-            $table->integer('clientes_id')->unsigned();
-            $table->foreign('clientes_id')->references('id')->on('clientes');
+            $table->timestamps();
         });
     }
 

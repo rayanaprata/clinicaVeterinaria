@@ -632,6 +632,10 @@ pre code {
  margin-left: -15px;
 }
 
+#menuzinho.row {
+  justify-content: center;
+}
+
 .no-gutters {
  margin-right: 0;
  margin-left: 0;

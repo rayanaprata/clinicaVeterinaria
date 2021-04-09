@@ -42,10 +42,12 @@
                 <tr>
                     <td colspan="30">Nenhuma Consulta Cadastrada</td>
                 </tr>
+                @endif
             </tbody>
         </table>
-        @endif
-        <div class="card-footer">
-            <a href="/consultas/create" class="btn btn-sm btn-primary" role="button">Nova Consulta</a>
-        </div>
-        @endsection
+    </div>
+    <div class="card-footer">
+        <a href="/consultas/create" class="btn btn-sm btn-primary" role="button">Nova Consulta</a>
+    </div>
+</div>
+@endsection

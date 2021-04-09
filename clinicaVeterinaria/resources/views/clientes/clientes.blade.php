@@ -36,10 +36,12 @@
                 <tr>
                     <td colspan="30">Nenhum Cliente Cadastrado</td>
                 </tr>
+                @endif
             </tbody>
         </table>
-        @endif
-        <div class="card-footer">
-            <a href="/clientes/create" class="btn btn-sm btn-primary" role="button">Novo Cliente</a>
-        </div>
-        @endsection
+    </div>
+    <div class="card-footer">
+        <a href="/clientes/create" class="btn btn-sm btn-primary" role="button">Novo Cliente</a>
+    </div>
+</div>
+@endsection

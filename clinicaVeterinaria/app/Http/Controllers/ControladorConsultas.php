@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Consultas;
-use App\Models\Clientes;
 use App\Models\Animais;
 
 class ControladorConsultas extends Controller
@@ -16,7 +15,7 @@ class ControladorConsultas extends Controller
      */
     public function index()
     {
-        $consultas = Consultas::all();
+        $consultas = Consultas::with('clientes', 'animais')->get();
         return view('consultas/consultas', compact('consultas'));
     }
 
@@ -27,7 +26,8 @@ class ControladorConsultas extends Controller
      */
     public function create()
     {
-        return view('consultas.novaconsulta');
+        $animais = Animais::all();
+        return view('consultas.novaconsulta', compact('animais'));
     }
 
     /**
@@ -44,8 +44,7 @@ class ControladorConsultas extends Controller
         $con->tratamento = $request->input('con_tratamento');
         $con->exame = $request->input('con_exame');
         $con->descExame = $request->input('con_descExame');
-        //$con->animais_id = $request->input('animais_id');
-        //$con->clientes_id = $request->input('clientes_id');
+        $con->animais_id = $request->input('animais_id');
         $con->save();
         return redirect('/consultas');
     }
@@ -93,8 +92,7 @@ class ControladorConsultas extends Controller
             $con->tratamento = $request->input('con_tratamento');
             $con->exame = $request->input('con_exame');
             $con->descExame = $request->input('con_descExame');
-            //$con->animais_id = $request->input('animais_id');
-            //$con->clientes_id = $request->input('clientes_id');
+            $con->animais_id = $request->input('animais_id');
             $con->save();
         }
 
@@ -116,23 +114,4 @@ class ControladorConsultas extends Controller
         return redirect('/consultas');
     }
 
-    public static function getCustomerName($id)
-    {
-        $consultas = Consultas::find($id);
-        if (isset($consultas)) {
-            $clientes = Clientes::find($consultas['clientes_id']);
-            if (isset($clientes))
-                return $clientes->nome;
-        }
-    }
-
-    public static function getAnimalName($id)
-    {
-        $consultas = Consultas::find($id);
-        if (isset($consultas)) {
-            $animais = Animais::find($consultas['animais_id']);
-            if (isset($animais))
-                return $animais->nome;
-        }
-    }
 }

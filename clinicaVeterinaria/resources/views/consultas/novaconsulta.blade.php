@@ -38,9 +38,19 @@
                     <input type="text" class="form-control" name="con_descExame" id="con_descExame" placeholder="Digite a descrição do exame">
                 </div>
 
+                <div class="form-group col-md-2">
+                    <label for="animais_id">Animais</label>
+                    <select id="animais_id" name="animais_id" class="form-control">
+                        @foreach($animais as $ani)
+                        <option value="{{ $ani['id'] }}">{{$ani['nome'] }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+
             </div>
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-            <button href="/consultas" type="cancel" class="btn btn-danger btn-sm">Cancelar</button>
+            <a href="/consultas" class="btn btn-danger btn-sm">Cancelar</a>
         </form>
     </div>
 </div>
