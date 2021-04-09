@@ -4,6 +4,7 @@ use App\Http\Controllers\ControladorAnimais;
 use App\Http\Controllers\ControladorClientes;
 use App\Http\Controllers\ControladorConsultas;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,7 @@ Route::resource('/consultas', ControladorConsultas::class);
 Route::resource('/animais/novo', ControladorAnimais::class);
 Route::resource('/clientes/novo', ControladorClientes::class);
 Route::resource('/consultas/novo', ControladorConsultas::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
