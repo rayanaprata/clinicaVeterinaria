@@ -5083,7 +5083,7 @@ input[type="button"].btn-block {
  -webkit-box-flex: 1;
      -ms-flex: 1 1 auto;
          flex: 1 1 auto;
- padding: 1.25rem;
+ padding: 1.75rem;
 }
 
 .card-title {
@@ -5608,7 +5608,7 @@ input[type="button"].btn-block {
 
 @media (min-width: 576px) {
  .jumbotron {
-   padding: 4rem 2rem;
+   padding: 12rem 2rem;
  }
 }
 
